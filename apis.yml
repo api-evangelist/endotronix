@@ -1,7 +1,18 @@
 aid: endotronix
 name: Endotronix
-description: 'Endotronix is a company surfaced via the API Evangelist harvest backlog (source: secondary-market)
-  and added to the network as a stub for full-pipeline profiling.'
+description: 'Endotronix, Inc. is a Naperville, Illinois medical device and digital
+  health company founded in 2007 and acquired by Edwards Lifesciences in July 2024,
+  where it now operates as a wholly owned subsidiary. Endotronix builds the Cordella
+  Heart Failure System, an integrated remote heart-failure management platform combining
+  an implantable wireless pulmonary artery (PA) pressure sensor — granted FDA premarket
+  approval in June 2024 — with a patient-facing myCordella tablet application, connected
+  home vitals peripherals (blood pressure cuff, weight scale, pulse oximeter), and the
+  myCordella Patient Management Portal, a cloud-based web application clinicians use to
+  review transmitted PA pressure, vitals and symptom data and to titrate guideline-directed
+  medical therapy. The company publishes clinical evidence (PROACTIVE-HF), instructions
+  for use and device manuals, but operates no public developer program: there is no
+  developer portal, API reference, SDK, webhook catalog or machine-readable specification
+  on any Endotronix host.'
 url: https://raw.githubusercontent.com/api-evangelist/endotronix/refs/heads/main/apis.yml
 x-type: company
 x-source: harvest:secondary-market
@@ -12,6 +23,13 @@ created: '2026-08-12'
 modified: '2026-08-12'
 tags:
 - Company
+- Medical Devices
+- Digital Health
+- Remote Patient Monitoring
+- Cardiology
+- Heart Failure
+- Health Care
+- Connected Devices
 apis: []
 maintainers:
 - FN: Kin Lane
@@ -19,5 +37,55 @@ maintainers:
 - FN: APIs.json
   email: info@apis.io
 common:
+- type: DomainSecurity
+  url: security/endotronix-domain-security.yml
+- type: LLMsTxt
+  url: llms/endotronix-llms.txt
+- type: Plans
+  url: plans/endotronix-plans-pricing.yml
+- type: RateLimits
+  url: rate-limits/endotronix-rate-limits.yml
 - type: Website
+  url: https://endotronix.com/
+- type: About
+  url: https://endotronix.com/about-endotronix/
+- type: Support
+  url: https://endotronix.com/contact-endotronix/
+- type: Blog
+  url: https://endotronix.com/heart-failure-news/
+- type: BlogRSS
+  url: https://endotronix.com/heart-failure-news/feed/
+- type: TermsOfService
+  url: https://endotronix.com/terms-of-use/
+- type: PrivacyPolicy
+  url: https://endotronix.com/privacy-policy/
+- type: Manuals
+  url: https://endotronix.com/manuals/
+- type: Resources
+  url: https://endotronix.com/resources/
+- type: SecondaryMarket
   url: https://forgeglobal.com/endotronix_stock/
+x-enrichment:
+  date: '2026-08-12'
+  status: minimal
+  artifacts_added: 5
+  pass: local-v1
+x-coverage:
+  state: none
+  reason: no-developer-program
+  detail: >-
+    Endotronix ships the Cordella system as a regulated end-user medical device platform —
+    an implant, a patient tablet app and the myCordella clinician portal — and its entire
+    published web surface is 19 marketing, clinical-evidence and IFU pages with no developer
+    portal, API reference, SDK or spec anywhere; api., developer. and data.endotronix.com do
+    not even resolve in DNS.
+  evidence:
+  - url: https://endotronix.com/openapi.json
+    status: 404
+  - url: https://endotronix.com/.well-known/agent-card.json
+    status: 404
+  - url: https://endotronix.com/llms.txt
+    status: 404
+  - url: https://endotronix.com/page-sitemap.xml
+    status: 200
+  checked: '2026-08-12'

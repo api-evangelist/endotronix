@@ -1,0 +1,16 @@
+generated: '2026-08-12'
+method: searched
+source: https://endotronix.com/
+limit_count: 0
+note: >-
+  No rate limits are documented because Endotronix publishes no API. Contract discovery
+  against every Endotronix host (REST spec paths, /.well-known/*, agent card, GraphQL and
+  MCP) returned 404 or a WAF interstitial, and no api./developer./docs. host resolves in
+  DNS. There is no public runtime surface to which a limit or a RateLimit-* header could
+  apply.
+evidence:
+- url: https://endotronix.com/openapi.json
+  status: 404
+- url: https://endotronix.com/swagger.json
+  status: 404
+rate_limits: []

@@ -1,0 +1,15 @@
+generated: '2026-08-12'
+method: searched
+source: https://endotronix.com/
+plan_count: 0
+note: >-
+  Endotronix publishes no plans, tiers or pricing of any kind. The Cordella Heart Failure
+  System is a Class III implantable medical device system sold through hospital and clinic
+  channels and reimbursed through CMS/payer coverage, not a subscription software product.
+  A crawl of the full published page sitemap (19 pages) found no pricing, plans, quota or
+  billing page, and there is no API or developer product to price.
+evidence:
+- url: https://endotronix.com/page-sitemap.xml
+  status: 200
+  note: complete published page list; no pricing or plans page present
+plans: []

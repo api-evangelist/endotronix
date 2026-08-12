@@ -1,0 +1,80 @@
+generated: '2026-08-12'
+method: probed
+source: live GET of /.well-known/* on every Endotronix host
+note: >-
+  No .well-known document was found on any Endotronix host. endotronix.com sits behind an
+  Imperva/Incapsula WAF that answers HTTP 200 with an ~840-byte HTML interstitial
+  (`_Incapsula_Resource` script shell) for several /.well-known/* paths — that is a bot
+  challenge, not a document, and is recorded here as a miss. The paths that reached the
+  WordPress origin returned a genuine 404. Because nothing returned a real document, NO
+  WellKnown and NO SecurityTxt pointer is wired into apis.yml — this file records a verified
+  absence, not a presence.
+hosts:
+- host: https://endotronix.com
+  documents:
+  - path: /.well-known/security.txt
+    status: 200
+    document: false
+    body: html-waf-interstitial
+    note: Imperva/Incapsula challenge shell, 212-844 bytes, text/html — reproduced on three retries
+  - path: /.well-known/openid-configuration
+    status: 200
+    document: false
+    body: html-waf-interstitial
+  - path: /.well-known/oauth-authorization-server
+    status: 200
+    document: false
+    body: html-waf-interstitial
+  - path: /.well-known/api-catalog
+    status: 200
+    document: false
+    body: html-waf-interstitial
+  - path: /.well-known/ai-plugin.json
+    status: 404
+    document: false
+    body: wordpress-404
+  - path: /.well-known/agent-card.json
+    status: 404
+    document: false
+    body: wordpress-404
+  - path: /.well-known/agent.json
+    status: 404
+    document: false
+    body: wordpress-404
+- host: https://myheart.com
+  note: >-
+    Patient/clinical-trial site for the Cordella PROACTIVE-HF program, operated on behalf of
+    Endotronix. Probed for completeness; every path 404s from the WordPress origin.
+  documents:
+  - path: /.well-known/security.txt
+    status: 404
+    document: false
+  - path: /.well-known/openid-configuration
+    status: 404
+    document: false
+  - path: /.well-known/oauth-authorization-server
+    status: 404
+    document: false
+  - path: /.well-known/api-catalog
+    status: 404
+    document: false
+  - path: /.well-known/ai-plugin.json
+    status: 404
+    document: false
+  - path: /.well-known/agent-card.json
+    status: 404
+    document: false
+  - path: /.well-known/agent.json
+    status: 404
+    document: false
+hosts_not_resolving:
+- api.endotronix.com
+- developer.endotronix.com
+- data.endotronix.com
+- portal.endotronix.com
+- my.endotronix.com
+note_dns: >-
+  None of the conventional API/developer hostnames resolve in DNS (NXDOMAIN).
+  docs.endotronix.com resolves to ghs.googlehosted.com and 302s to
+  http://drive.google.com/a/endotronix.com — an internal Google Workspace Drive, not
+  public developer documentation.
